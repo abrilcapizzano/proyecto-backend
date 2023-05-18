@@ -1,0 +1,17 @@
+img{
+    width: 320px;
+    height: 280px;
+}
+.container-productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border: 2px solid black;
+}
