@@ -1,29 +1,28 @@
-const {DataTypes} = require("sequelize")
-module.exports = function(connection){
+const { DataTypes } = require('sequelize');
+const connection = require('../database/mysql_connection');
 
-const Productos = connection.define('Productos',{
-idproductos:{
-    type:DataTypes.INTEGER,
-autoIncrement:true,
-primaryKey: true
-},
-productos_precio:{
-    type:DataTypes.INTEGER,
-    allowNull:true
-},
-productos_nombre:{
-    type:DataTypes.STRING,
-    allowNull:true 
-},
-productos_imagen:{
-    type:DataTypes.STRING,
-    allowNull:true 
-}
-},
-{
-freezeTableName:'productos',
-timestamps:false
-}
-)
-return Productos
-}
+const Productos = connection.define('productos', {
+  idproductos: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+  productos_nombre: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  productos_precio: {
+    type: DataTypes.FLOAT,
+    allowNull: false
+  },
+  productos_imagen: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+}, {
+  tableName: 'productos',
+  timestamps: false
+});
+
+module.exports = Productos;

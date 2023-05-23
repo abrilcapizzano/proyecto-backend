@@ -15,3 +15,22 @@ img{
     margin: 10px;
     border: 2px solid black;
 }
+p{
+    font-size: 18px;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.navegador{
+align-items: center;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-content: space-between;
+}
+
+.titulo{
+    font-size: 24px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: bold;
+    margin: 14px;
+}
