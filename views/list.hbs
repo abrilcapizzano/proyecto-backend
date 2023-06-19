@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans&family=Roboto:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans&family=Roboto:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <title>Productos</title>
 </head>
 
 <body>
-    <header class="navegador"><p class="titulo">Agrega un produto a tu tienda virtual</p><button class="btn btn-primary" data-toggle="modal" data-target="#myModalAdd">Añadir</button></header>
+    <header class="navegador"><p class="titulo">Agrega un produto a tu tienda virtual</p> <button class="btn boton-agregar" data-toggle="modal" data-target="#myModalAdd"> <img class="icon-btn" src="/assets/img/icon-agregar.svg" alt="icon-btn"> <p class="p-agregar">Añadir Nuevo Producto</p></button>  </header>
     <div>
         <div id="mytable" class="container-productos">
             {{#each productos}}
             <div class="card">
                 <p>{{productos_nombre}}</p>
-                <p>{{productos_precio}}</p>
+                <p>${{productos_precio}}</p>
                 <img src="{{productos_imagen}}" alt="Imagen del producto">
-                <a href="javascript:void(0);" class="btn btn-info edit" data-idproductos="{{ idproductos }}" data-productos_nombre="{{ productos_nombre }}" data-productos_precio="{{ productos_precio }}">Editar</a>
-                <button href="javascript:void(0);" class="btn btn-danger delete" data-id="{{ idproductos }}">Borrar</button>
+                <a href="javascript:void(0);" class="btn btn-editar edit" data-idproductos="{{ idproductos }}" data-productos_nombre="{{ productos_nombre }}" data-productos_precio="{{ productos_precio }}">Editar <img class="icon-btn2" src="/assets/img/icon-update.svg" alt=""></a>
+                <button href="javascript:void(0);" class="btn btn-delete delete" data-id="{{ idproductos }}">Borrar <img class="icon-btn2" src="/assets/img/icon-delete.svg" alt=""></button>
 
             </div>
             {{/each}}
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <input type="text" name="productos_precio" class="form-control" placeholder="Precio" required>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <input type="text" name="productos_imagen" class="form-control" placeholder="URL de la imagen" required>
                 </div>
                 </div>
