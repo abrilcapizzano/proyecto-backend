@@ -3,7 +3,11 @@ const router = express.Router();
 const Productos = require('../models/productos');
 const productosController = require('../controllers/productos_controller');
 
-router.get('/', productosController.list);
+router.get('/', productosController.home);
+router.get('/list', productosController.list);
+router.post('/registro', productosController.home, (req, res) => {
+  res.redirect('/list');
+});
 
 router.post('/save', (req, res) => {
   const { productos_nombre, productos_precio, productos_imagen } = req.body;
@@ -14,7 +18,7 @@ router.post('/save', (req, res) => {
     productos_imagen
   })
     .then(() => {
-      res.redirect('/');
+      res.redirect('/list');
     })
     .catch((error) => {
       console.error(error);
@@ -31,7 +35,7 @@ router.post('/update', (req, res) => {
     { where: { idproductos: idproductos } }
   )
     .then(() => {
-      res.redirect('/');
+      res.redirect('/list');
     })
     .catch((error) => {
       console.error(error);
@@ -47,7 +51,7 @@ router.post('/delete', (req, res) => {
     where: { idproductos: idproductos }
   })
     .then(() => {
-      res.redirect('/');
+      res.redirect('/list');
     })
     .catch((error) => {
       console.error(error);
